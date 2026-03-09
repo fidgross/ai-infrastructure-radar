@@ -1,0 +1,14 @@
+[
+  {
+    "id": "tensorforge/tfserve",
+    "author": "tensorforge",
+    "pipeline_tag": "text-generation",
+    "downloads": 18421,
+    "likes": 232,
+    "lastModified": "2026-03-08T02:30:00.000Z",
+    "tags": ["text-generation", "inference", "serving"],
+    "cardData": {
+      "summary": "Serving stack update with speculative decoding and lower latency."
+    }
+  }
+]

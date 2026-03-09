@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f4efe7;
+  --panel: rgba(255, 255, 255, 0.75);
+  --ink: #11212d;
+  --muted: #556b75;
+  --line: rgba(17, 33, 45, 0.12);
+  --accent: #d95d39;
+  --accent-2: #48644d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(217, 93, 57, 0.18), transparent 34%),
+    radial-gradient(circle at top right, rgba(72, 100, 77, 0.18), transparent 26%),
+    linear-gradient(180deg, #fcfaf7 0%, #f4efe7 48%, #ede6db 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px rgba(17, 33, 45, 0.12);
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.72rem;
+}

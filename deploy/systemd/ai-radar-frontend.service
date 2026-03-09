@@ -1,0 +1,14 @@
+[Unit]
+Description=AI Infrastructure Radar frontend
+After=network.target ai-radar-backend.service
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/ai-infrastructure-radar/frontend
+EnvironmentFile=/etc/ai-radar/frontend.env
+ExecStart=/usr/bin/env npm run start -- --hostname 127.0.0.1 --port 3000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

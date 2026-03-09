@@ -1,0 +1,14 @@
+.DS_Store
+.data
+.env
+.git
+.next
+.pytest_cache
+.venv
+__pycache__
+backend/.pytest_cache
+backend/tests/__pycache__
+frontend/.next
+frontend/node_modules
+node_modules
+tmp

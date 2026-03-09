@@ -1,0 +1,67 @@
+services:
+  - type: pserv
+    name: radar-backend
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./deploy/docker/backend.prod.Dockerfile
+    dockerContext: .
+    dockerCommand: /app/scripts/start_backend.sh
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: radar-db
+          property: connectionString
+      - key: BACKEND_TRUSTED_HOSTS
+        value: '["*"]'
+      - key: SEC_USER_AGENT
+        value: ai-infrastructure-radar ops@example.com
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: HUGGINGFACE_TOKEN
+        sync: false
+
+  - type: web
+    name: radar-frontend
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./deploy/docker/frontend.prod.Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: INTERNAL_API_URL
+        fromService:
+          type: pserv
+          name: radar-backend
+          property: hostport
+
+  - type: cron
+    name: radar-pipeline
+    runtime: docker
+    plan: starter
+    schedule: "0 */6 * * *"
+    dockerfilePath: ./deploy/docker/backend.prod.Dockerfile
+    dockerContext: .
+    dockerCommand: /app/scripts/start_pipeline_once.sh
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: radar-db
+          property: connectionString
+      - key: BACKEND_TRUSTED_HOSTS
+        value: '["*"]'
+      - key: SEC_USER_AGENT
+        value: ai-infrastructure-radar ops@example.com
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: HUGGINGFACE_TOKEN
+        sync: false
+
+databases:
+  - name: radar-db
+    plan: basic-256mb
+    databaseName: radar
+    user: radar

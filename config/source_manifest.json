@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {
+      "source_type": "arxiv",
+      "enabled": true,
+      "limit": 10,
+      "query": "all:(\"speculative decoding\" OR \"sparse inference\" OR \"model routing\")"
+    },
+    {
+      "source_type": "github",
+      "enabled": true,
+      "limit": 10,
+      "repo": "vllm-project/vllm"
+    },
+    {
+      "source_type": "huggingface",
+      "enabled": true,
+      "limit": 10,
+      "org": "mistralai"
+    },
+    {
+      "source_type": "edgar",
+      "enabled": true,
+      "limit": 10,
+      "ticker": "NVDA"
+    }
+  ]
+}

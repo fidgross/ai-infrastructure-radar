@@ -1,0 +1,15 @@
+[Unit]
+Description=AI Infrastructure Radar backend
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/ai-infrastructure-radar
+EnvironmentFile=/etc/ai-radar/backend.env
+Environment=PYTHONPATH=backend
+ExecStart=/srv/ai-infrastructure-radar/.venv/bin/uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips=*
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

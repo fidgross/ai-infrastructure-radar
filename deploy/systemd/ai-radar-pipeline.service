@@ -1,0 +1,9 @@
+[Unit]
+Description=AI Infrastructure Radar scheduled pipeline
+After=network.target ai-radar-backend.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/ai-infrastructure-radar
+EnvironmentFile=/etc/ai-radar/backend.env
+ExecStart=/usr/bin/env PYTHONPATH=backend /srv/ai-infrastructure-radar/.venv/bin/python scripts/run_pipeline.py --manifest /srv/ai-infrastructure-radar/config/source_manifest.json

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run AI Infrastructure Radar pipeline every 6 hours
+
+[Timer]
+OnCalendar=*-*-* 00/6:00:00 UTC
+Persistent=true
+Unit=ai-radar-pipeline.service
+
+[Install]
+WantedBy=timers.target

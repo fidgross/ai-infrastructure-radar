@@ -1,0 +1,13 @@
+{
+  "cik": "1234567",
+  "name": "SkyBridge Compute, Inc.",
+  "filings": {
+    "recent": {
+      "accessionNumber": ["0001234567-26-000010"],
+      "filingDate": ["2026-03-05"],
+      "form": ["10-K"],
+      "primaryDocument": ["skybridge-10k.htm"],
+      "primaryDocDescription": ["Annual report noting step-function GPU capacity expansion."]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>http://arxiv.org/abs/2603.01234v1</id>
+    <updated>2026-03-06T18:42:00Z</updated>
+    <published>2026-03-06T18:42:00Z</published>
+    <title>Accelerant Sparse Runtime</title>
+    <summary>Sparse runtime work shows lower token cost at competitive throughput.</summary>
+    <author><name>Casey Lin</name></author>
+    <author><name>Priya Desai</name></author>
+    <category term="cs.LG" />
+    <category term="cs.DC" />
+  </entry>
+</feed>
